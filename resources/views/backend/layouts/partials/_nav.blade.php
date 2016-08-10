@@ -11,8 +11,8 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                Laravel
+            <a class="navbar-brand" href="{{ url('/admin') }}">
+                赫群生技
             </a>
         </div>
 

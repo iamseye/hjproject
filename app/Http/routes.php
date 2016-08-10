@@ -11,6 +11,32 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('home');
 });
+*/
+
+//backend session ------------
+ Route::group(array('prefix' => 'admin'), function() {
+
+     Route::get('/','BackendController@index');
+     Route::get('/overview','OverviewController@editOneRecord');
+     Route::post('/overview/update','OverviewController@updateOneRecord');
+
+     //Route::resource('/overview','OverviewController');
+
+ });
+
+
+//Route::resource('/overview', 'OverviewController');
+
+//Route::get('/overview', 'OverviewController@index');
+//Route::post('/overview/{$id}', 'OverviewController@update');
+
+
+Route::controllers([
+    'auth'=>'Auth\AuthController',
+    'password'=>'Auth\PasswordController'
+]);
+Route::auth();
