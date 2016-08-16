@@ -12,5 +12,7 @@
 
     </div>
 </div>
-
+@stop
+@section('body_script')
+    @yield('script')
 @stop

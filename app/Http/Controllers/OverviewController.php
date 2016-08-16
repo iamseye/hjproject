@@ -45,7 +45,7 @@ class OverviewController extends Controller
     {
         //check file type
         $validator = Validator::make($request->all(), [
-            'logo'=>'mimes:jpeg,bmp,png',
+            'logo'=>'image',
             'ico'=>'mimes:ico'
         ]);
 

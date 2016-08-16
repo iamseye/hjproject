@@ -24,15 +24,15 @@ Route::get('/', function () {
      Route::get('/overview','OverviewController@editOneRecord');
      Route::post('/overview/update','OverviewController@updateOneRecord');
 
+     Route::resource('/cyclepics','CyclepicsController');
+     Route::resource('/about','AboutController');
+     Route::resource('news','NewsController');
+
+
+     //Route::post('/indexinfo','IndexinfoController@create');
      //Route::resource('/overview','OverviewController');
 
  });
-
-
-//Route::resource('/overview', 'OverviewController');
-
-//Route::get('/overview', 'OverviewController@index');
-//Route::post('/overview/{$id}', 'OverviewController@update');
 
 
 Route::controllers([
