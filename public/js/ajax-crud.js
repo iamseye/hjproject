@@ -55,7 +55,6 @@ $(document).ready(function(){
 
             $('#checkModal').modal('hide');
         });
-
     });
 
 
@@ -99,7 +98,7 @@ $(document).ready(function(){
 
                 console.log(data);
 
-                //location.reload();
+                location.reload();
 
                 $('#frmTasks').trigger("reset");
 
