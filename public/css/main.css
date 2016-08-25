@@ -1,0 +1,181 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	font-family: 'メイリオ',meiryo,'ヒラギノ角ゴ pro w3','hiragino kaku gothic pro','微軟正黑體',sans-serif;
+	font-size: 1em;
+	overflow-x: hidden;
+	font-weight: 100 !important;
+	background:url("../images/Bg.jpg") top center no-repeat;
+	background-size: cover;
+}
+
+input[type="button"]:active {
+	outline: none;
+	border: none;
+}
+
+*:focus {
+	outline:0 !important;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+.clear{
+	clear: both;
+}
+
+.shadow{
+	box-shadow: 0 3px 5px rgba(0,0,0,0.25);
+}
+
+.lazyLoad{
+	position: relative;
+	top:50px;
+	opacity: 0;
+	transition: .3s;
+}
+
+.lazyLoad.show{
+	top:0px;
+	opacity: 1;
+}
+
+
+h1{
+	font-size: 40px;
+	margin-bottom: 10px !important;
+}
+
+h2{
+	font-size: 30px;
+	margin-bottom: 10px !important;
+}
+
+h3{
+	font-size: 20px;
+	margin-bottom: 10px !important;
+}
+
+.wrapper{
+	position: relative;
+	width: 90%;
+	margin: 0 auto;
+	overflow: hidden;
+	max-width: 1200px;
+	min-width: 1024px;
+}
+
+#header{
+	width: 100%;
+	height: auto;
+	padding-bottom: 35px;
+	padding-top: 25px;
+	border-top:#00b1a0 10px solid;
+}
+
+#header .wrapper{
+	border-bottom: #999 1px solid;
+}
+
+
+#logo{
+	float: left;
+	width: 300px;
+}
+
+#mainMenu{
+	float: left;
+	width:calc( 100% - 300px);
+	height: auto;
+	text-align:right;
+	margin-top: 10px;
+}
+
+#mainMenu li{
+	display: inline-block;
+	width: 85px;
+	height: 22px;
+	font-size: 0px;
+	margin-left: 25px;
+	margin-bottom:25px;
+	transition: .2s;
+}
+
+
+
+
+#footer{
+	background: url("../images/footer_bg.gif");
+	background-size: 50px;
+	color: #666;
+	padding-top: 15px;
+	border-bottom:#00b1a0 10px solid;
+	box-shadow: 0 0 5px rgba(0,0,0,0.25);
+}
+
+#footer .wrapper{
+	padding:15px 0;
+	border-top: #999 1px solid;
+}
+
+#subMenu{
+	display: block;
+}
+
+#subMenu li{
+	display: inline-block;
+	margin-right:15px;
+	color: #666;
+}
+
+#contactList{
+	display: block;
+	margin-top: 25px;
+}
+
+
+#footerLogo{
+	position: absolute;
+	bottom: 65px;
+	right: 0px;
+	height: 30px;
+}
+
+#copyright{
+	position: absolute;
+	bottom: 15px;
+	right: 0px;
+	line-height: 20px;
+	text-align:right;
+}
+
+
+@media screen and (min-width: 1200px){
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 979px) {
+
+}
+
+@media screen and (max-width: 767px) {
+
+}
+
+@media screen and (max-width: 480px) {
+
+
+}
+
+@media screen and (max-device-width: 480px) {
+	
+}
+
+
+
+
+
+
+

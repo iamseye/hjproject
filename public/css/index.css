@@ -1,0 +1,104 @@
+#bannerIndex{
+	position: relative;
+	width: 100%;
+	padding:50px 0 100px;
+}
+
+#bannerIndex .wrapper{
+	overflow: visible;
+}
+
+.bannerIndexContent{
+	width: 100%;
+	overflow: 
+}
+
+.bannerIndexContent img{
+	width: 100%;
+}
+
+.slick-next, .slick-prev{
+	position: absolute;
+	top:50%;
+	width:50px;
+	height: 50px;
+	margin-top: -25px;
+	transition:.1s;
+	border: 0;
+	font-size: 0;
+	opacity: .5;
+}
+
+.slick-next:hover, .slick-prev:hover{
+	opacity: 1;
+}
+
+.slick-next{
+	right:-60px;
+	background:url("../images/next.png") center no-repeat;
+	background-size: contain;
+}
+
+.slick-prev{
+	left:-60px;
+	background:url("../images/prev.png") center no-repeat;
+	background-size: contain;
+}
+
+.slick-dots{
+	position: absolute;
+	bottom: -30px;
+	width: 100%;
+	text-align: center;
+	z-index: 99999999999999999;
+}
+
+.slick-dots li{
+	display: inline-block;
+	margin: 0 3px;
+}
+
+.slick-dots li button{
+	height: 10px;
+	width: 10px;
+	background:url("../images/dot_c.png") no-repeat;
+	background-size: cover;
+	border:0;
+	font-size: 0;
+}
+
+.slick-dots li.slick-active button{
+	background:url("../images/dot_a.png") no-repeat;
+	background-size: cover;
+}
+
+
+
+
+
+@media screen and (min-width: 1200px){
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 979px) {
+
+}
+
+@media screen and (max-width: 767px) {
+
+}
+
+@media screen and (max-width: 480px) {
+
+}
+
+@media screen and (max-device-width: 480px) {
+	
+}
+
+
+
+
+
+
+

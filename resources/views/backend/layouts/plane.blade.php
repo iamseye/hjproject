@@ -22,11 +22,21 @@
     <!-- summernote eidtor -->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
 
+    <!--lightbox css -->
+    {!! Html::style('css/lightbox.min.css') !!}
+
+    <!--jquery UI -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
     <![endif]-->
+
+    @yield('custom_css')
 </head>
 <body>
 	@yield('body')
@@ -40,8 +50,14 @@
     <!-- summernote eidtor -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
 
-    @yield('body_script')
+    <!--lightbox css -->
+    {!! HTML::script('js/lightbox.js') !!}
 
+    <!--jquery UI -->
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
+
+    @yield('body_script')
 
     <!-- reuse JavaScript ================================================== -->
 

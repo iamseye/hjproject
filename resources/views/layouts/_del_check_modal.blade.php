@@ -7,7 +7,7 @@
 
             </div>
             <div class="modal-body">
-                <p>確認刪除？</p>
+                <p>確認刪除？ </p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>

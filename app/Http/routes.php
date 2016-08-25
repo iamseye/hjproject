@@ -11,22 +11,32 @@
 |
 */
 
-/*
-Route::get('/', function () {
-    return view('home');
-});
-*/
+
+Route::get('/','IndexController@index');
+Route::get('/about','AboutController@index');
+Route::resource('/news','NewsController');
+Route::resource('/review','ReviewController');
+
+
 
 //backend session ------------
- Route::group(array('prefix' => 'admin'), function() {
 
-     Route::get('/','BackendController@index');
+ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function($router)
+ {
+     Route::get('/','OverviewController@editOneRecord');
      Route::get('/overview','OverviewController@editOneRecord');
      Route::post('/overview/update','OverviewController@updateOneRecord');
 
+     Route::post('/cyclepics/updateorder','CyclepicsController@updateOrder');
      Route::resource('/cyclepics','CyclepicsController');
+
      Route::resource('/about','AboutController');
      Route::resource('news','NewsController');
+     Route::resource('/product','ProductController');
+     Route::post('/productEditFiles','ProductController@editFiles');
+     Route::resource('/productcate','ProductcateController');
+     Route::resource('/review','ReviewController');
+     Route::resource('/media','MediaController');
 
 
      //Route::post('/indexinfo','IndexinfoController@create');
