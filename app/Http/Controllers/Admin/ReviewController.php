@@ -85,6 +85,20 @@ class ReviewController extends Controller
         return Response()->json($task);
     }
 
+    public function saveSummerPic(Request $request)
+    {
+        $files=$request->file('file');
+        $destinationPath = base_path() . '/public/img/summernote/review';
+
+        $extension=$files->getClientOriginalExtension();
+        $fileName = md5(rand(100, 200)).'.'.$extension;
+        $files->move($destinationPath,$fileName);
+
+        $imgUrl='img/summernote/review/'.$fileName;
+
+        return Response()->json(['imgUrl'=> $imgUrl]);
+    }
+
     // -------end backed Admin --------
 
     public function failMsg($request,$msg)

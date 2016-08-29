@@ -7,7 +7,7 @@
 @section('banner')
     <div id="bannerInside">
         <div class="bannerInsideContent">
-            <img src="./images/bannerInside05.jpg" />
+            <img src="/images/bannerInside05.jpg" />
         </div>
     </div>
 @stop
@@ -22,7 +22,7 @@
             </div>
 
             <div id="newsContent">
-               {{ strip_tags($news->content) }}
+               {!! $news->content !!}
             </div>
 
             <a href="{{url()->previous()}}"><div id="back">上一頁</div></a>
@@ -30,3 +30,7 @@
     </div>
 @stop
 
+@section('script')
+    {!! HTML::script('js/slide.js') !!}
+
+@stop

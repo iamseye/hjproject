@@ -53,7 +53,8 @@ class ProductController extends Controller
         $newrow = Product::create([
             'title' => $request->get('title'),
             'price' => $request->get('price'),
-            'des'=>$request->get('des')
+            'des'=>$request->get('des'),
+            'onShelf'=>$request->get('onShelf')
         ]);
 
         $id=$newrow->id;
@@ -126,7 +127,9 @@ class ProductController extends Controller
         //update new product in db
         $product->update([
             'title' => $request->get('title'),
-            'price' => $request->get('price')
+            'price' => $request->get('price'),
+            'des'=>$request->get('des'),
+            'onShelf'=>$request->get('onShelf')
         ]);
 
         $product_id=$product->id;
@@ -153,28 +156,91 @@ class ProductController extends Controller
     {
         $task = Product::destroy($id);
 
+        $success = File::cleanDirectory(base_path() . '/public/img/products/p_'.$id);
+
         $this->succMsg($request,'刪除成功');
 
         return Response()->json($task);
     }
 
-    public function editFiles(Request $request)
+    //------for product Pictures Edit
+    public function productPics($id)
     {
-        if ($_FILES['file']['name']) {
-            if (!$_FILES['file']['error']) {
-                $name = md5(rand(100, 200));
-                $ext = explode('.', $_FILES['file']['name']);
-                $filename = $name . '.' . $ext[1];
-                $destination = 'img/' . $filename; //change this directory
-                $location = $_FILES["file"]["tmp_name"];
-                move_uploaded_file($location, $destination);
-                echo '/img/' . $filename;//change this URL
+        $pics=Product::findOrFail($id)->productpics()->orderBy('order','ASC')->get();
+
+
+        return view('backend.product.edit_pics',compact('pics'));
+    }
+
+    public function productPicsDel($id)
+    {
+        $task = Productpic::destroy($id);
+
+        return Response()->json($task);
+    }
+
+    public function productPicsAdd(Request $request)
+    {
+
+        $product_id=$request->get('product_id');
+        //------handle files array -------
+        $file =  $request->file('path');
+
+            $destinationPath = base_path() . '/public/img/products/p_'.$product_id;
+
+            //create folder
+            if(!File::exists($destinationPath)) {
+                //path does not exist
+                File::makeDirectory($destinationPath, $mode = 0777, true, true);
             }
-            else
-            {
-                echo  $message = 'Ooops!  Your upload triggered the following error:  '.$_FILES['file']['error'];
-            }
+
+            $extension=$file->getClientOriginalExtension();
+            $fileName = 'product'.$product_id.'_'.uniqid().'.'.$extension;
+            $file->move($destinationPath,$fileName);
+
+            $pics=Productpic::create([
+                'path'=>'/img/products/p_'.$product_id,
+            ]);
+
+            $pics->product_id=$product_id;
+            $pics->name=$fileName;
+            $pics->save();
+
+        //------ end of files array ------
+
+    }
+
+    public function updatePicsOrder(Request $request)
+    {
+        $orderArray=$request->get('order');
+
+        for($i=0;$i<sizeof($orderArray);$i++)
+        {
+            Productpic::where('id',$orderArray[$i])
+                ->update(['order'=>$i+1]);
         }
+
+        $this->succMsg($request,'修改圖片順序成功');
+
+        return Response()->json(array(
+            'success' => true,
+        ));
+    }
+
+    //-------end product Pictures Edit
+
+    public function saveSummerPic(Request $request)
+    {
+        $files=$request->file('file');
+        $destinationPath = base_path() . '/public/img/summernote/product';
+
+        $extension=$files->getClientOriginalExtension();
+        $fileName = md5(rand(100, 200)).'.'.$extension;
+        $files->move($destinationPath,$fileName);
+
+        $imgUrl='img/summernote/product/'.$fileName;
+
+        return Response()->json(['imgUrl'=> $imgUrl]);
     }
 
     // -------end backed Admin --------

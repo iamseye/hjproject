@@ -30,6 +30,7 @@
     </div>
 </div>
 <!-- /.row (nested) -->
+<meta name="_token" content="{{ csrf_token() }}" />
 
 
 
@@ -41,16 +42,47 @@
     <script>
         $(document).ready(function() {
             $('#des').summernote({
-                height:200,
+                height:500,
                 callbacks: {
                     onPaste: function (e) {
                         var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
                         e.preventDefault();
                         document.execCommand('insertText', false, bufferText);
+                    },
+                    onImageUpload: function(files, editor, welEditable) {
+                        console.log('img');
+                        sendFile(files[0],editor,welEditable);
                     }
+
                 }
             });
         });
+
+        function sendFile(file,editor,welEditable) {
+            data = new FormData();
+            data.append("file", file);
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+            })
+
+            $.ajax({
+                data: data,
+                type: "POST",
+                url: "/admin/about/saveSummerPic",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    var urlResult=data.imgUrl;
+                    var APP_URL = {!! json_encode(url('/')) !!}
+                    console.log(APP_URL+'/'+urlResult);
+                    $('#des').summernote('editor.insertImage', APP_URL+'/'+urlResult);
+                }
+            });
+        }
 
     </script>
 @stop

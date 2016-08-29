@@ -26,7 +26,7 @@
                     <div class="insideText">
                         <h2>{{ $about->cate }}</h2>
                         <div class="textArea">
-                            {{ strip_tags($about->des) }}
+                            {!! $about->des !!}
                         </div>
                     </div>
                 @endforeach
@@ -39,3 +39,7 @@
     </div>
 @stop
 
+@section('script')
+    {!! HTML::script('js/slide.js') !!}
+
+@stop

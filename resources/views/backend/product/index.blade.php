@@ -25,22 +25,22 @@
         </thead>
         <tbody id="tasks-list" name="tasks-list">
 
-        @foreach($products as $row)
-            <tr id="{{$row->id}}">
-                <td>{{$row->id}}</td>
-                <td> {{$row->title}}</td>
-                <td>{{$row->price}}</td>
-                <td> @foreach($row->pathArray as $path)
-                     {!! Html::image($path,$row->title,array('width' => 50 , 'height' => 50)) !!}
+            @for ($i = 0; $i < count($products); $i++)
+            <tr id="{{$products[$i]->id}}">
+                <td>{{($i+1)}}</td>
+                <td> {{$products[$i]->title}}</td>
+                <td>{{$products[$i]->price}}</td>
+                <td> @foreach($products[$i]->pathArray as $path)
+                     {!! Html::image($path,$products[$i]->title,array('width' => 50 , 'height' => 50)) !!}
                      @endforeach
                     </td>
-                <td>{{$row->created_at}}</td>
+                <td>{{$products[$i]->created_at}}</td>
                 <td>
-                    <a href="{{ url('admin/product/'.$row->id)  }}" class="btn btn-warning">編輯</a>
-                    <button class="btn btn-danger delete-task" value="{{$row->id}}">刪除</button>
+                    <a href="{{ url('admin/product/'.$products[$i]->id)  }}" class="btn btn-warning">編輯</a>
+                    <button class="btn btn-danger delete-task" value="{{$products[$i]->id}}">刪除</button>
                 </td>
             </tr>
-        @endforeach
+        @endfor
 
         </tbody>
     </table>

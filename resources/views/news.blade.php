@@ -7,7 +7,7 @@
 
     <div id="bannerInside">
         <div class="bannerInsideContent">
-            <img src="./images/bannerInside05.jpg" />
+            {{ HTML::image('images/bannerInside05.jpg',null) }}
         </div>
     </div>
 @stop
@@ -30,5 +30,9 @@
 
         </div>
     </div>
+@stop
+@section('script')
+    {!! HTML::script('js/slide.js') !!}
+
 @stop
 

@@ -14,26 +14,13 @@
         {!! Form::model($overviews,['method'=>'POST' , 'url'=>'admin/overview/update','files' => 'true'] ) !!}
 
         <div class='form-group'>
-            {!! Form::label('keyword','關鍵字：')!!}
-            {!! Form::text('keyword', null, ['class'=>'form-control']) !!}
-        </div>
-
-
-        <div class='form-group'>
-            {!! Form::label('description','描述：')!!}
-            {!! Form::textarea('description', null, ['class'=>'form-control']) !!}
-        </div>
-    </div>
-    <!-- /.col-lg-6 (nested) -->
-    <div class="col-lg-6">
-        <div class='form-group'>
             <div class="row">
                 <div class="col-lg-6">
-            {!! Form::label('logo','Logo：')!!}
-            {!! Form::file('logo', null) !!}
+                    {!! Form::label('logo','Logo：')!!}
+                    {!! Form::file('logo', null) !!}
                 </div>
                 <div class="col-lg-4">
-                    {!! Html::image('img/logo.png','logo',array('width' => 50 , 'height' => 50,'id'=>'logoImg','data-lightbox'=>'logo')) !!}
+                    {!! Html::image('img/logo.png','logo',array('width' => 200 , 'height' => 100,'id'=>'logoImg','data-lightbox'=>'logo')) !!}
                 </div>
             </div>
         </div>
@@ -41,7 +28,7 @@
         <div class='form-group'>
             <div class="row">
                 <div class="col-lg-6">
-                    {!! Form::label('ico','Ico：')!!}
+                    {!! Form::label('ico','Favio：')!!}
                     {!! Form::file('ico', null) !!}
                     請上傳.ico檔案
                 </div>
@@ -51,6 +38,9 @@
             </div>
 
         </div>
+    </div>
+    <!-- /.col-lg-6 (nested) -->
+    <div class="col-lg-6">
 
         <div class='form-group'>
             {!! Form::label('contact_phone','聯絡電話：')!!}

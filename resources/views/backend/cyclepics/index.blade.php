@@ -46,11 +46,11 @@
     </table>
         <!-- End of Table-to-load-the-data Part -->
 
-    <div class="row pull-right ">
-        <div class="inline"><button id="btn-order" name="btn-order" class="btn btn-primary ">儲存順序</button></div>
-        <div class="inline"><p>使用滑鼠拖曳已改變圖片顯示順序</p></div>
+        <div class="pull-right">
+            <span>使用滑鼠拖曳已改變圖片顯示順序，主要圖片請放在第一順位</span>
+            <button id="btn-order" name="btn-order" class="btn btn-primary ">儲存順序</button>
+        </div>
     </div>
-</div>
                             <!-- /.row (nested) -->
 
             <!-- Modal (Pop up when detail button clicked) -->

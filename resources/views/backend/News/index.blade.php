@@ -12,6 +12,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
+                <th>編號</th>
                 <th>標題</th>
                 <th>內容</th>
                 <th>日期</th>
@@ -19,18 +20,19 @@
             </tr>
             </thead>
             <tbody id="tasks-list" name="tasks-list">
-            @foreach($news as $row)
-                <tr id="{{$row->id}}">
-                    <td> {{$row->title}}</td>
-                    <td> {{ str_limit(strip_tags($row->content), $limit = 100, $end = '...') }}
+            @for ($i = 0; $i < count($news); $i++)
+                <tr id="{{$news[$i]->id}}">
+                    <td> {{($i+1)}}</td>
+                    <td> {{$news[$i]->title}}</td>
+                    <td> {{ str_limit(strip_tags($news[$i]->content), $limit = 100, $end = '...') }}
                         </td>
-                    <td>{{$row->created_at}}</td>
+                    <td>{{$news[$i]->created_at}}</td>
                     <td>
-                        <a href="{{ url('admin/news/'.$row->id)  }}" class="btn btn-warning">編輯</a>
-                        <button class="btn btn-danger delete-task" value="{{$row->id}}">刪除</button>
+                        <a href="{{ url('admin/news/'.$news[$i]->id)  }}" class="btn btn-warning">編輯</a>
+                        <button class="btn btn-danger delete-task" value="{{$news[$i]->id}}">刪除</button>
                     </td>
                 </tr>
-            @endforeach
+            @endfor
             </tbody>
         </table>
         <!-- End of Table-to-load-the-data Part -->

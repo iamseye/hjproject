@@ -5,13 +5,15 @@
     <title>健康水墨</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width">
-
+    <meta name="keywords" content="">
+    <meta name="description" content="">
     <link rel="shortcut icon" href="{{ asset('img/ico.ico') }}">
     <link rel="icon" href="{{ asset('img/ico.ico') }}" type="image/ico">
     {!! Html::style('css/main.css') !!}
     {!! Html::style('css/slick.css') !!}
     {!! Html::style('css/base.css') !!}
     {!! Html::style('css/reset.css') !!}
+    {!! Html::style('css/login.css') !!}
 
     @yield('css')
 
@@ -73,7 +75,6 @@
 {!! HTML::script('js/menu.js') !!}
 {!! HTML::script('js/waypoints.min.js') !!}
 {!! HTML::script('js/load.js') !!}
-{!! HTML::script('js/slide.js') !!}
 
 @yield('script')
 

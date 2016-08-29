@@ -11,9 +11,10 @@ class Product extends Model
         'title',
         'price',
         'des',
+        'onShelf'
     ];
 
-    public function media()
+    public function medias()
     {
         return $this->hasMany('App\Media');
     }
@@ -41,7 +42,7 @@ class Product extends Model
         Product::deleting(function($product)
         {
             // Delete all tricks that belong to this user
-            foreach ($product->media as $media) {
+            foreach ($product->medias as $media) {
                 $media->delete();
             }
 

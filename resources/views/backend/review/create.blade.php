@@ -14,6 +14,11 @@
             {!! Form::text('title', null, ['class'=>'form-control']) !!}
         </div>
 
+        <div class='form-group'>
+            {!! Form::label('name','見證人：')!!}
+            {!! Form::text('name', null, ['class'=>'form-control']) !!}
+        </div>
+
         <div class="form-group">
             {!! Form::label('product_id','商品：')!!}
             {!! Form::select('product_id', $productSelect,['class'=>'form-control']) !!}
@@ -33,19 +38,56 @@
     </div>
 </div>
 
+<meta name="_token" content="{{ csrf_token() }}" />
 
 
-            @stop
+@stop
 
-            @section('script')
-                <script>
-                    $(document).ready(function() {
-                        $('#content').summernote({
-                            height:200
-                        });
-                    });
+@section('script')
+<script>
+        $(document).ready(function() {
+            $('#content').summernote({
+                height:500,
+                callbacks: {
+                    onPaste: function (e) {
+                        var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+                        e.preventDefault();
+                        document.execCommand('insertText', false, bufferText);
+                    },
+                    onImageUpload: function(files, editor, welEditable) {
+                        sendFile(files[0],editor,welEditable);
+                    }
 
-                </script>
+                }
+            });
+        });
+
+        function sendFile(file,editor,welEditable) {
+            data = new FormData();
+            data.append("file", file);
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+            })
+
+            $.ajax({
+                data: data,
+                type: "POST",
+                url: "/admin/review/saveSummerPic",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                    var urlResult=data.imgUrl;
+                    var APP_URL = {!! json_encode(url('/')) !!}
+                $('#content').summernote('editor.insertImage', APP_URL+'/'+urlResult);
+                }
+            });
+        }
+
+</script>
 
 
 @stop

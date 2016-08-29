@@ -35,22 +35,21 @@ class MediaController extends Controller
     public function store(Request $request)
     {
 
-        /*$youlink=$request->link;
+        $youlink=$request->link;
 
-        if(strpos($youlink, 'https://www.youtube.com/watch?v=') === false)
+        if(strpos($youlink, 'http://v.youku.com/v_show/id') === false)
         {
 
-            $this->failMsg($request,'請上傳正確youtube連結');
+            $this->failMsg($request,'請上傳正確優酷連結');
         }
-        else
-        {*/
-            $media=Media::create($request->all());
+        else {
+            $media = Media::create($request->all());
 
-            $media->product_id=$request->product_id;
+            $media->product_id = $request->product_id;
             $media->save();
 
-            $this->succMsg($request,'新增成功');
-
+            $this->succMsg($request, '新增成功');
+        }
 
         return redirect('admin/media');
 

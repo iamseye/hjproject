@@ -61,6 +61,20 @@ class NewsController extends Controller
         return Response()->json($task);
     }
 
+    public function saveSummerPic(Request $request)
+    {
+        $files=$request->file('file');
+
+        $destinationPath = base_path() . '/public/img/summernote/news';
+
+        $extension=$files->getClientOriginalExtension();
+        $fileName = md5(rand(100, 200)).'.'.$extension;
+        $files->move($destinationPath,$fileName);
+
+        $imgUrl='img/summernote/news/'.$fileName;
+        return Response()->json(['imgUrl'=> $imgUrl]);
+    }
+
     // -------end backed Admin --------
 
     public function failMsg($request,$msg)
