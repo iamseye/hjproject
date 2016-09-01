@@ -32,7 +32,7 @@
     </div>
 @stop
 
-        @section('script')
+@section('script')
     {!! HTML::script('js/slide.js') !!}
 
 

@@ -33,7 +33,8 @@
 
             </div>
         </div>
-        @stop
+        </div>
+@stop
 
         @section('script')
             {!! HTML::script('js/slide.js') !!}

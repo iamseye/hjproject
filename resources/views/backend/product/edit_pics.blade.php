@@ -35,7 +35,7 @@
                     </td>
                     <td>{{$pics[$i]->created_at}}</td>
                     <td>
-                        @if($pics[$i]->order!=1)
+                        @if($pics[$i]->order!=1 )
                             <button class="btn btn-danger btn-delete" value="{{$pics[$i]->id}}" >刪除</button>
                         @endif
                     </td>

@@ -99,6 +99,7 @@ class ProductController extends Controller
 
             $pics->product_id=$id;
             $pics->name=$fileName;
+            $pics->order=(int)($index+1);
             $pics->save();
 
         }

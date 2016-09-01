@@ -45,7 +45,7 @@
         </tbody>
     </table>
     <!-- End of Table-to-load-the-data Part -->
-    </div>
+</div>
                             <!-- /.row (nested) -->
 
     <meta name="_token" content="{{ csrf_token() }}" />

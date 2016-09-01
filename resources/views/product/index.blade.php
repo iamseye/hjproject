@@ -46,12 +46,13 @@
                         <a href="{{ url('product/'.$product->id) }}"><div class="buyBTN">瞭解更多</div></a>
                     @endif
                 </div>
+             </div>
 
         @endforeach
 
         <div class="clear"></div>
     </div>
- @stop
+@stop
 
 @section('script')
                 {!! HTML::script('js/slide.js') !!}
