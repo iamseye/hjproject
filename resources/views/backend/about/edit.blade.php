@@ -33,9 +33,6 @@
 <meta name="_token" content="{{ csrf_token() }}" />
 
 
-
-
-
 @stop
 
 @section('script')

@@ -54,7 +54,7 @@
             <ul id="contactList">
                 <li>地址：东莞巿南城街道蛤地社区大进步50号二楼</li>
                 <li>電話：0769-22118805</li>
-                <li>Email：gina@sins-bag.com</li>
+                <li>Email：hechiun@gmail.com</li>
             </ul>
             {{ HTML::image('images/footer_logo.png',null,array('id'=>'footerLogo')) }}
             <div id="copyright">&copy; 2016 JiangKangShuiMo. All rights reserved.<br />design by circlestudio</div>
