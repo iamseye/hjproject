@@ -18,7 +18,7 @@ function menu(){
         $this.children("li").css("background-size","cover");
 
         preload = new Image();
-        preload.src = "./images/menu_0"+i+"_h.png";
+        preload.src = "/images/menu_0"+i+"_h.png";
     }
 
     $("#mainMenu a").hover(function(){

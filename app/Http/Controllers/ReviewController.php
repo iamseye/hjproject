@@ -13,7 +13,8 @@ class ReviewController extends Controller
 
     public function index()
     {
-        $product=Product::all();
+        // 顯示商品再顯示評論
+        /*$product=Product::all();
 
         $pic_paths=[];
         $has_reviews=[];
@@ -36,6 +37,24 @@ class ReviewController extends Controller
         }
 
         return view('review.index',compact('product','pic_paths','has_reviews'));
+        */
+
+        //暫定改成顯示特定商品評論
+        $product=Product::findOrFail(3);
+
+        $reviews=Product::findOrFail(3)->reviews()->paginate(10);
+
+        $has_media='';
+
+        $medias=Product::find(3)->medias()->get();
+
+        if(!$medias->isEmpty())
+        {
+            $has_media='Y';
+        }
+
+        return view('review.allReview',compact('product','reviews','has_media'));
+
     }
 
     public function showAllReviews($id)

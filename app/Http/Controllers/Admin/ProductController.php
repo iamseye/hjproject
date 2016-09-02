@@ -11,6 +11,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Support\Facades\File;
+use Carbon\Carbon;
 
 
 
@@ -236,7 +237,7 @@ class ProductController extends Controller
         $destinationPath = base_path() . '/public/img/summernote/product';
 
         $extension=$files->getClientOriginalExtension();
-        $fileName = md5(rand(100, 200)).'.'.$extension;
+        $fileName = date('YmdHis').md5(rand(100, 200)).'.'.$extension;
         $files->move($destinationPath,$fileName);
 
         $imgUrl='img/summernote/product/'.$fileName;

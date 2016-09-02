@@ -44,6 +44,8 @@
 
                     @if($product->onShelf==1 )
                         <a href="{{ url('product/'.$product->id) }}"><div class="buyBTN">瞭解更多</div></a>
+                    @else
+                        <a ><div class="waitBTN">盡請期待</div></a>
                     @endif
                 </div>
              </div>

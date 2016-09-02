@@ -26,6 +26,8 @@
                         </p>
                         @if(($p->onShelf==1) && ($has_medias[$p->id]=='Y'))
                             <a href="{{ url('media/showAllMedia/'.$p->id) }}"><div class="buyBTN">瞭解更多</div></a>
+                        @elseif($p->onShelf!=1)
+                            <a ><div class="waitBTN">盡請期待</div></a>
                         @endif
                     </div>
 
