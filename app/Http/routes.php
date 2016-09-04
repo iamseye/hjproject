@@ -22,8 +22,12 @@ Route::get('/media/showAllMedia/{id}','MediaController@showAllMedia');
 Route::resource('/product','ProductController');
 Route::resource('/contact','ContactController');
 
+//for mobile
 
-
+Route::group(['prefix' => 'm'], function() {
+    Route::get('/','MobileController@index');
+    Route::get('/product/{id}','MobileController@show');
+});
 
 //backend session ------------
 

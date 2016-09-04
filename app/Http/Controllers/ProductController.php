@@ -17,6 +17,7 @@ class ProductController extends Controller
     {
         $products=Product::all();
 
+
         $pic_paths=[];
         $has_reviews=[];
         $has_medias=[];

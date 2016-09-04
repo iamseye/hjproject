@@ -39,7 +39,7 @@
                         <a href="{{ url('review/showAllReviews/'.$product->id) }}"><div class="cartBTN">使用見證</div></a>
                     @endif
                     @if($has_medias[$product->id]=='Y')
-                        <a href="{{ url('review/showAllMedias/'.$product->id) }}"><div class="cartBTN">新聞媒體</div></a>
+                        <a href="{{ url('media/showAllMedia/'.$product->id) }}"><div class="cartBTN">新聞媒體</div></a>
                     @endif
 
                     @if($product->onShelf==1 )
